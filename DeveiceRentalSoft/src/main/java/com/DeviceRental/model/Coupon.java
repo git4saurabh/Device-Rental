@@ -1,5 +1,7 @@
 package com.DeviceRental.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -14,7 +16,7 @@ public class Coupon {
     private String code;
 
     private double discountAmount;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private LocalDate expirationDate;
 
     private int usageLimit; // Number of times the coupon can be used
