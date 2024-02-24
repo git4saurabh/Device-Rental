@@ -40,5 +40,10 @@ public class OrderService {
         orderRepository.deleteById(orderId);
     }
 
+//    public List<Order> findByQuantityAndDeviceId(int quantity, Long deviceId) {
+//        return orderRepository.findByQuantityAndDeviceId(quantity, deviceId);
+//    }
+
+
     // Add more methods as needed
 }
