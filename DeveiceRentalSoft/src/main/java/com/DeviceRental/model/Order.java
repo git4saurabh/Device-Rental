@@ -21,6 +21,8 @@ public class Order {
     @ManyToOne
     private Device device;
     private LocalDateTime orderDate;
+    private int quantity;
+    private String status;
 
     private LocalDateTime deliveryDate;
 
@@ -36,6 +38,22 @@ public class Order {
         this.orderDate = orderDate;
         this.deliveryDate = deliveryDate;
         this.totalPrice = totalPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public long getId() {

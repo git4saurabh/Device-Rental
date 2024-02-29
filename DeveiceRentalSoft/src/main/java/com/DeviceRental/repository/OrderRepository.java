@@ -15,6 +15,11 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     // Custom query to find orders by device
     List<Order> findByDevice_Id(Long deviceId);
+    List<Order> findByQuantity(int quantity);
+
+    List<Order> findByOrderDate(String orderDate);
+
+    List<Order> findByStatus(String status);
 
 //    @Query("SELECT o FROM Order o WHERE o.quantity = :quantity AND o.device.id = :deviceId")
 //    List<Order> findByQuantityAndDeviceId(@Param("quantity") int quantity, @Param("deviceId") Long deviceId);

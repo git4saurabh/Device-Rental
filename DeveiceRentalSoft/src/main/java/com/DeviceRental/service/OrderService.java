@@ -32,8 +32,19 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public Order updateOrder(Order order) {
-        return orderRepository.save(order);
+    public Order updateOrder(Long id,Order updatedOrder) {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+        if (optionalOrder.isPresent()) {
+            Order existingOrder = optionalOrder.get();
+            existingOrder.setQuantity(updatedOrder.getQuantity());
+            existingOrder.setOrderDate(updatedOrder.getOrderDate());
+            existingOrder.setDeliveryDate(updatedOrder.getDeliveryDate());
+            existingOrder.setStatus(updatedOrder.getStatus());
+            return orderRepository.save(existingOrder);
+        } else {
+            return null; // or throw an exception
+        }
+
     }
 
     public void deleteOrder(Long orderId) {
